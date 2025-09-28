@@ -4,7 +4,7 @@ from sklearn.tree import DecisionTreeClassifier
 import io
 
 @st.cache_data
-def load_data(uploaded_file):
+def load_data():
    return pd.read_csv("data_laptop.csv")
 
 # --- SCORING FUNCTIONS ---
@@ -83,11 +83,8 @@ st.markdown(
 
 st.divider()
 
-uploaded_file = st.sidebar.file_uploader("Pilih file 'laptops_modified.csv'", type=["csv"])
-
-# Load data and train model
-df = load_data(uploaded_file)
-model, threshold = train_model(df)  
+df = load_data()
+model, threshold = train_model(df)
 
 # --- MAIN LAYOUT ---
 col1, col2 = st.columns([1, 1.5], gap="large")
