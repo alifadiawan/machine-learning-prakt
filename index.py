@@ -83,14 +83,11 @@ st.markdown(
 
 st.divider()
 
-# --- FILE UPLOADER ---
-st.sidebar.header("Unggah Dataset Anda")
 uploaded_file = st.sidebar.file_uploader("Pilih file 'laptops_modified.csv'", type=["csv"])
 
 # Load data and train model
 df = load_data(uploaded_file)
-model, threshold = train_model(df)
-
+model, threshold = train_model(df)  
 
 # --- MAIN LAYOUT ---
 col1, col2 = st.columns([1, 1.5], gap="large")
